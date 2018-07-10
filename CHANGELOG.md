@@ -1,3 +1,7 @@
+## 0.3.0
+
+Upgrade Terraform version at 0.11.8.
+
 ## 0.2.1-pre
 
 Bumped version for dev.
