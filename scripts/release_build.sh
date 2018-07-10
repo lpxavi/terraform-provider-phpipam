@@ -2,7 +2,7 @@
 
 declare -A args=(
   # The GPG key to sign the binaries with.
-  [keyid]="9E2D8AFF3BE44244"
+  [keyid]="A71E9E1A"
 
   # The name of the target binary.
   [binname]="terraform-provider-phpipam"
@@ -44,7 +44,7 @@ message() {
 # release for. The script then switches to this branch.
 get_release() {
   # gets the last ten releases.
-  versions=($(git tag --sort "-v:refname" | egrep '^v[0-9]+\.[0-9]+\.[0-9]+' | head -n 10))
+  versions=($(git tag | egrep '^v[0-9]+\.[0-9]+\.[0-9]+' | head -n 10))
 
   if [ -z "${versions[*]}" ]; then
     message error "No non-prerelease versions available at this time. Please release a version first"
@@ -113,7 +113,7 @@ sign_files() {
   (
     set -e
     cd pkg/dist
-    shasum -a256 -- * > "./${args[binname]}_${__release}_SHA256SUMS"
+    sha256sum -- * > "./${args[binname]}_${__release}_SHA256SUMS"
     gpg --default-key "${args[keyid]}" --detach-sig "./${args[binname]}_${__release}_SHA256SUMS"
   )
   local __status=$?

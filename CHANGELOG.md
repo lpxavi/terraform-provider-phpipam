@@ -1,3 +1,11 @@
+## 0.3.1-pre
+
+Bumped version for dev.
+
+## 0.3.0
+
+Upgrade Terraform version at 0.11.8.
+
 ## 0.2.1-pre
 
 Bumped version for dev.
@@ -14,7 +22,7 @@ New version with some breaking changes regarding custom fields:
 
 Also have added two new data sources:
 
- * `phpipam_address` will search addresses for a `description`  or `hostname`
+ * `phpipam_addresses` will search addresses for a `description`  or `hostname`
    exact match or a `custom_field_filter` match, much like the singular-form
    `phpipam_address` data source. A list of IP address IDs are returned, which
    can then be used to look up addresses with the `phpipam_address` data source.
